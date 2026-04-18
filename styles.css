@@ -2098,3 +2098,510 @@ ul { list-style: none; }
   .jv2-illus-frame { max-width: 220px; }
   .jv2-item, .jv2-item--alt { padding-left: 22px; margin-left: 12px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   LUXURY TRANSFORMATION — cinematic dark wood premium atmosphere
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Updated root palette ──────────────────────────────────── */
+:root {
+  --bg:      #080706;
+  --bg-2:    #0e0b07;
+  --bg-3:    #161009;
+  --bg-4:    #1c1510;
+  --accent:  #c9a96e;
+  --text:    #f0dfc5;
+  --text-2:  #a8967a;
+  --wood-dark: #3a2010;
+  --wood-mid:  #7a4b23;
+  --wood-light:#b7854a;
+  --gold-soft: #d4b07a;
+  --cream:   #f0dfc5;
+}
+
+/* ── Global grain texture overlay ──────────────────────────── */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: .028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  mix-blend-mode: overlay;
+}
+
+/* ── Navigation upgrade ─────────────────────────────────────── */
+.nav-wrap {
+  background: transparent;
+  transition: background .4s ease, backdrop-filter .4s ease;
+}
+.nav-wrap.scrolled {
+  background: rgba(6,4,2,.88);
+  backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid rgba(201,169,110,.1);
+}
+.nav-logo {
+  font-size: 22px;
+  letter-spacing: .12em;
+  color: var(--accent);
+}
+.nav-links a {
+  color: var(--text-2);
+  transition: color .25s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+/* ── Buttons — brushed gold shine ──────────────────────────── */
+.btn-primary,
+.cta-strip .btn-primary,
+.hero-cta .btn-primary {
+  background: linear-gradient(135deg, #b8912f 0%, #e0c26a 40%, #c9a96e 60%, #9a7228 100%);
+  background-size: 200% 200%;
+  color: #0a0702;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: .14em;
+  border: none;
+  box-shadow: 0 6px 32px rgba(201,169,110,.28), inset 0 1px 0 rgba(255,255,255,.18);
+  transition: background-position .5s ease, box-shadow .3s ease, transform .2s ease;
+}
+.btn-primary:hover,
+.cta-strip .btn-primary:hover {
+  background-position: 100% 100%;
+  box-shadow: 0 10px 48px rgba(201,169,110,.42), inset 0 1px 0 rgba(255,255,255,.22);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border-color: rgba(201,169,110,.5);
+  color: var(--accent);
+  transition: border-color .3s, background .3s, color .3s;
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  background: rgba(201,169,110,.08);
+  color: var(--gold-soft);
+}
+
+/* ── Hero — cinematic atmosphere ───────────────────────────── */
+.hero {
+  background: radial-gradient(ellipse 80% 60% at 30% 55%, rgba(90,54,18,.45) 0%, transparent 65%),
+              radial-gradient(ellipse 50% 40% at 72% 30%, rgba(58,32,16,.35) 0%, transparent 55%),
+              var(--bg);
+}
+.hero-title {
+  font-size: clamp(52px, 9vw, 122px);
+  line-height: .92;
+  letter-spacing: -.01em;
+  color: var(--cream);
+  text-shadow: 0 4px 60px rgba(0,0,0,.6);
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-subtitle {
+  color: var(--text-2);
+  letter-spacing: .22em;
+  font-size: clamp(10px,1.1vw,13px);
+}
+.hero-scroll-line {
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+/* ── Marquee upgrade ────────────────────────────────────────── */
+.marquee-strip {
+  background: var(--bg-2);
+  border-top: 1px solid rgba(201,169,110,.12);
+  border-bottom: 1px solid rgba(201,169,110,.12);
+}
+.marquee-item {
+  color: var(--text-2);
+  letter-spacing: .18em;
+}
+.marquee-dot {
+  color: var(--accent);
+  opacity: .6;
+}
+
+/* ── Intro section ─────────────────────────────────────────── */
+.intro-section {
+  background: linear-gradient(160deg, var(--bg) 0%, var(--bg-2) 100%);
+}
+.intro-overline {
+  color: var(--accent);
+  letter-spacing: .28em;
+}
+.intro-heading {
+  color: var(--cream);
+  font-size: clamp(36px,5vw,64px);
+}
+.intro-body {
+  color: var(--text-2);
+  line-height: 1.85;
+}
+.intro-stat-number {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: clamp(44px,6vw,72px);
+}
+.intro-stat-label {
+  color: var(--text-2);
+  letter-spacing: .18em;
+}
+
+/* ── Services cards ─────────────────────────────────────────── */
+.services-section {
+  background: var(--bg-2);
+}
+.service-card {
+  background: linear-gradient(145deg, rgba(26,18,10,.9) 0%, rgba(14,11,7,.95) 100%);
+  border: 1px solid rgba(201,169,110,.1);
+  box-shadow: 0 4px 32px rgba(0,0,0,.4);
+  transition: border-color .35s, box-shadow .35s, transform .35s;
+}
+.service-card:hover {
+  border-color: rgba(201,169,110,.32);
+  box-shadow: 0 12px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(201,169,110,.15);
+  transform: translateY(-5px);
+}
+.service-icon {
+  color: var(--accent);
+}
+.service-title {
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: clamp(20px,2.2vw,26px);
+}
+.service-desc {
+  color: var(--text-2);
+  line-height: 1.75;
+}
+
+/* ── Project preview cards ──────────────────────────────────── */
+.projects-section {
+  background: var(--bg);
+}
+.project-card {
+  overflow: hidden;
+  border-radius: 2px;
+  position: relative;
+}
+.project-card-overlay {
+  background: linear-gradient(to top, rgba(5,3,1,.95) 0%, rgba(5,3,1,.5) 50%, transparent 100%);
+  opacity: 1;
+  transition: opacity .4s;
+}
+.project-card:hover .project-card-overlay {
+  opacity: 1;
+}
+.project-card-info {
+  transform: translateY(12px);
+  transition: transform .4s ease;
+}
+.project-card:hover .project-card-info {
+  transform: translateY(0);
+}
+.project-card-title {
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: clamp(18px,2vw,24px);
+}
+.project-tag {
+  color: var(--accent);
+  letter-spacing: .18em;
+  font-size: 11px;
+}
+
+/* ── Stats bar ──────────────────────────────────────────────── */
+.stats-section,
+.stats-bar {
+  background: linear-gradient(135deg, #0a0703 0%, var(--wood-dark) 50%, #0a0703 100%);
+  border-top: 1px solid rgba(201,169,110,.15);
+  border-bottom: 1px solid rgba(201,169,110,.15);
+}
+.stat-number {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: clamp(48px,7vw,88px);
+  text-shadow: 0 0 40px rgba(201,169,110,.3);
+}
+.stat-label {
+  color: var(--text-2);
+  letter-spacing: .2em;
+}
+
+/* ── Clients section ────────────────────────────────────────── */
+.clients-section {
+  background: var(--bg-2);
+}
+.client-logo {
+  opacity: .45;
+  filter: brightness(.9) sepia(.2);
+  transition: opacity .3s, filter .3s;
+}
+.client-logo:hover {
+  opacity: .85;
+  filter: brightness(1.1) sepia(.1);
+}
+
+/* ── CTA strip ──────────────────────────────────────────────── */
+.cta-strip {
+  background: linear-gradient(135deg, rgba(58,32,16,.8) 0%, rgba(8,7,6,.9) 60%),
+              var(--bg-2);
+  border-top: 1px solid rgba(201,169,110,.15);
+}
+.cta-strip-heading {
+  color: var(--cream);
+  font-size: clamp(32px,5vw,60px);
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+footer, .footer {
+  background: #040302;
+  border-top: 1px solid rgba(201,169,110,.18);
+}
+.footer-logo {
+  color: var(--accent);
+}
+.footer-tagline,
+.footer-desc {
+  color: var(--text-2);
+  line-height: 1.8;
+}
+.footer-heading {
+  color: var(--cream);
+  letter-spacing: .18em;
+  font-size: 11px;
+}
+.footer-links a {
+  color: var(--text-2);
+  transition: color .25s;
+}
+.footer-links a:hover {
+  color: var(--accent);
+}
+.footer-bottom {
+  border-top: 1px solid rgba(201,169,110,.08);
+  color: rgba(168,150,122,.45);
+}
+
+/* ── Page headers (about, services, projects, contact) ──────── */
+.page-header,
+.about-header,
+.services-header,
+.projects-header,
+.contact-header {
+  background: radial-gradient(ellipse 70% 80% at 15% 50%, rgba(90,54,18,.3) 0%, transparent 60%),
+              var(--bg);
+  border-bottom: 1px solid rgba(201,169,110,.1);
+}
+.page-header-title,
+.page-header h1 {
+  color: var(--cream);
+  font-size: clamp(44px,8vw,108px);
+  text-shadow: 0 2px 40px rgba(0,0,0,.5);
+}
+.page-header-overline,
+.page-header-sub {
+  color: var(--accent);
+  letter-spacing: .28em;
+}
+
+/* ── About page sections ────────────────────────────────────── */
+.about-intro,
+.about-values,
+.about-philosophy {
+  background: var(--bg);
+}
+.about-values-card {
+  background: linear-gradient(145deg, rgba(22,16,9,.95) 0%, rgba(14,11,7,.98) 100%);
+  border: 1px solid rgba(201,169,110,.1);
+  transition: border-color .3s, box-shadow .3s;
+}
+.about-values-card:hover {
+  border-color: rgba(201,169,110,.28);
+  box-shadow: 0 8px 40px rgba(0,0,0,.45);
+}
+
+/* ── Services page ──────────────────────────────────────────── */
+.services-detail-section {
+  background: var(--bg-2);
+}
+.service-detail-card {
+  background: linear-gradient(145deg, rgba(22,16,9,.92), rgba(12,9,6,.96));
+  border: 1px solid rgba(201,169,110,.1);
+}
+.service-detail-card:hover {
+  border-color: rgba(201,169,110,.3);
+  box-shadow: 0 16px 64px rgba(0,0,0,.5);
+}
+
+/* ── Projects page / modal ──────────────────────────────────── */
+.project-filters button {
+  color: var(--text-2);
+  border: 1px solid rgba(201,169,110,.15);
+  background: transparent;
+  letter-spacing: .15em;
+  transition: all .3s;
+}
+.project-filters button:hover,
+.project-filters button.active {
+  color: var(--accent);
+  border-color: rgba(201,169,110,.4);
+  background: rgba(201,169,110,.06);
+}
+.project-modal {
+  background: rgba(4,3,2,.96);
+  backdrop-filter: blur(24px);
+}
+.project-modal-inner {
+  background: linear-gradient(160deg, var(--bg-3) 0%, var(--bg-2) 100%);
+  border: 1px solid rgba(201,169,110,.15);
+  box-shadow: 0 32px 100px rgba(0,0,0,.7);
+}
+
+/* ── Contact page ───────────────────────────────────────────── */
+.contact-section {
+  background: var(--bg-2);
+}
+.contact-form-wrap {
+  background: linear-gradient(145deg, rgba(22,16,9,.9), rgba(14,11,7,.95));
+  border: 1px solid rgba(201,169,110,.15);
+  box-shadow: 0 16px 64px rgba(0,0,0,.5);
+}
+.contact-form-wrap:hover {
+  border-color: rgba(201,169,110,.25);
+}
+.form-input,
+.form-textarea,
+.form-select,
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  background: rgba(8,7,6,.8);
+  border: 1px solid rgba(201,169,110,.18);
+  color: var(--text);
+  transition: border-color .3s, box-shadow .3s;
+}
+.form-input:focus,
+.form-textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: rgba(201,169,110,.5);
+  box-shadow: 0 0 0 3px rgba(201,169,110,.08);
+}
+.form-label,
+label {
+  color: var(--text-2);
+  letter-spacing: .14em;
+  font-size: 11px;
+}
+.contact-info-item {
+  color: var(--text-2);
+}
+.contact-info-icon {
+  color: var(--accent);
+}
+
+/* ── Process sections (index + pv2) ─────────────────────────── */
+.process-section,
+.process-v2 {
+  background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+}
+.pv2-row {
+  border-bottom-color: rgba(201,169,110,.08);
+}
+.pv2-step-num {
+  color: rgba(201,169,110,.18);
+}
+.pv2-title {
+  color: var(--cream);
+}
+.pv2-desc {
+  color: var(--text-2);
+}
+
+/* ── Journey section (about) ─────────────────────────────────── */
+.journey-v2 {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 50%, var(--bg) 100%);
+}
+.jv2-track::before {
+  background: linear-gradient(to bottom, transparent 0%, rgba(201,169,110,.2) 20%, rgba(201,169,110,.2) 80%, transparent 100%);
+}
+.jv2-node {
+  background: var(--bg-2);
+  border-color: rgba(201,169,110,.3);
+  box-shadow: 0 0 20px rgba(201,169,110,.12);
+}
+.jv2-year {
+  color: var(--accent);
+  text-shadow: 0 0 40px rgba(201,169,110,.2);
+}
+.jv2-heading {
+  color: var(--cream);
+}
+.jv2-desc {
+  color: var(--text-2);
+}
+
+/* ── Scroll reveal fade-in ───────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .75s cubic-bezier(.22,.68,0,1.2), transform .75s cubic-bezier(.22,.68,0,1.2);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Dividers / ornaments ───────────────────────────────────── */
+.section-divider,
+.ornament-line {
+  border-color: rgba(201,169,110,.12);
+}
+
+/* ── Responsive luxury tweaks ────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-title { font-size: clamp(40px,11vw,68px); }
+  .stat-number { font-size: clamp(40px,10vw,64px); }
+  .service-card { border-radius: 2px; }
+  .contact-form-wrap { border-radius: 2px; }
+}
+@media (max-width: 480px) {
+  .hero-title { font-size: clamp(34px,12vw,52px); }
+  .page-header-title,
+  .page-header h1 { font-size: clamp(36px,12vw,64px); }
+  .nav-logo { font-size: 18px; }
+  .stat-number { font-size: clamp(36px,12vw,52px); }
+}
+
+/* ── Selection color ────────────────────────────────────────── */
+::selection {
+  background: rgba(201,169,110,.22);
+  color: var(--cream);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: rgba(201,169,110,.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(201,169,110,.45); }
