@@ -298,6 +298,108 @@ if (modal) {
   });
 }
 
+/* ── Hero Canvas Particle System ────────────────────────────── */
+const heroCanvas = document.getElementById('heroCanvas');
+if (heroCanvas && window.innerWidth > 768) {
+  const ctx = heroCanvas.getContext('2d');
+  let W, H, particles = [];
+  const ACCENT = [194, 165, 123];
+
+  function resizeCanvas() {
+    const hero = heroCanvas.parentElement;
+    W = heroCanvas.width  = hero.offsetWidth;
+    H = heroCanvas.height = hero.offsetHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', () => { resizeCanvas(); particles = []; initParticles(); }, { passive: true });
+
+  class Particle {
+    constructor(fresh) {
+      this.fresh = fresh;
+      this.reset(fresh);
+    }
+    reset(atBottom) {
+      this.x      = Math.random() * W;
+      this.y      = atBottom ? H + 5 : Math.random() * H;
+      this.size   = Math.random() * 1.4 + 0.3;
+      this.speed  = Math.random() * 0.35 + 0.12;
+      this.drift  = (Math.random() - 0.5) * 0.28;
+      this.opacity = 0;
+      this.maxOp  = Math.random() * 0.38 + 0.08;
+      this.life   = 0;
+      this.maxLife = Math.random() * 320 + 180;
+      this.isDiamond = Math.random() > 0.72;
+    }
+    update() {
+      this.y -= this.speed;
+      this.x += this.drift;
+      this.life++;
+      const t = this.life / this.maxLife;
+      this.opacity = t < 0.18 ? (t / 0.18) * this.maxOp
+                   : t > 0.78 ? ((1 - t) / 0.22) * this.maxOp
+                   : this.maxOp;
+      if (this.life >= this.maxLife || this.y < -10) this.reset(true);
+    }
+    draw() {
+      ctx.save();
+      ctx.globalAlpha = this.opacity;
+      ctx.fillStyle = `rgb(${ACCENT.join(',')})`;
+      if (this.isDiamond) {
+        ctx.translate(this.x, this.y);
+        ctx.rotate(Math.PI / 4);
+        ctx.fillRect(-this.size, -this.size, this.size * 2, this.size * 2);
+      } else {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+  }
+
+  function initParticles() {
+    const count = Math.min(Math.floor(W * H / 14000), 55);
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      const p = new Particle(false);
+      p.life = Math.floor(Math.random() * p.maxLife * 0.75);
+      particles.push(p);
+    }
+  }
+  initParticles();
+
+  let rafId;
+  function animateParticles() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => { p.update(); p.draw(); });
+    rafId = requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
+
+  // Gradually spawn extra particles
+  const spawnInterval = setInterval(() => {
+    const max = Math.min(Math.floor(W * H / 10000), 70);
+    if (particles.length < max) particles.push(new Particle(true));
+  }, 600);
+
+  // Pause when tab is hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { cancelAnimationFrame(rafId); clearInterval(spawnInterval); }
+    else animateParticles();
+  });
+}
+
+/* ── SVG draw-on animation for visible elements ─────────────── */
+const svgDrawObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.svg-draw-line').forEach(el => el.classList.add('visible'));
+      svgDrawObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.hero-svg-deco, .about-svg-illus, .svc-tool-deco').forEach(el => svgDrawObserver.observe(el));
+
 /* ── Contact Form ───────────────────────────────────────────── */
 const form       = document.querySelector('.contact-form-el');
 const successMsg = document.querySelector('.form-success');

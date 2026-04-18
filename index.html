@@ -44,6 +44,49 @@
   <!-- ── HERO ────────────────────────────────────────── -->
   <section class="hero">
     <div class="hero-bg"></div>
+    <canvas id="heroCanvas"></canvas>
+
+    <!-- Architectural line illustrations -->
+    <div class="hero-svg-deco" aria-hidden="true">
+      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="80" y1="900" x2="540" y2="0"    stroke="rgba(194,165,123,0.06)" stroke-width="1"/>
+        <line x1="80" y1="900" x2="820" y2="0"    stroke="rgba(194,165,123,0.04)" stroke-width="1"/>
+        <line x1="80" y1="900" x2="1100" y2="0"   stroke="rgba(194,165,123,0.03)" stroke-width="1"/>
+        <line x1="80" y1="900" x2="1380" y2="280" stroke="rgba(194,165,123,0.025)" stroke-width="1"/>
+        <line x1="0"   y1="580" x2="340" y2="580" stroke="rgba(194,165,123,0.09)" stroke-width="1"/>
+        <line x1="0"   y1="660" x2="200" y2="660" stroke="rgba(194,165,123,0.055)" stroke-width="1"/>
+        <line x1="340" y1="574" x2="340" y2="586" stroke="rgba(194,165,123,0.12)" stroke-width="1"/>
+        <line x1="1360" y1="0"  x2="1360" y2="400" stroke="rgba(194,165,123,0.04)" stroke-width="1"/>
+        <line x1="1400" y1="0"  x2="1400" y2="260" stroke="rgba(194,165,123,0.03)" stroke-width="1"/>
+        <path d="M 48 48 L 48 24 L 72 24"            stroke="rgba(194,165,123,0.2)"  stroke-width="1" fill="none"/>
+        <path d="M 1392 24 L 1416 24 L 1416 48"      stroke="rgba(194,165,123,0.2)"  stroke-width="1" fill="none"/>
+        <path d="M 1416 852 L 1416 876 L 1392 876"   stroke="rgba(194,165,123,0.12)" stroke-width="1" fill="none"/>
+        <g fill="rgba(194,165,123,0.14)">
+          <circle cx="1280" cy="100" r="1.5"/><circle cx="1300" cy="100" r="1.5"/><circle cx="1320" cy="100" r="1.5"/><circle cx="1340" cy="100" r="1.5"/>
+          <circle cx="1280" cy="120" r="1.5"/><circle cx="1300" cy="120" r="1.5"/><circle cx="1320" cy="120" r="1.5"/><circle cx="1340" cy="120" r="1.5"/>
+          <circle cx="1280" cy="140" r="1.5"/><circle cx="1300" cy="140" r="1.5"/><circle cx="1320" cy="140" r="1.5"/>
+          <circle cx="1280" cy="160" r="1.5"/><circle cx="1300" cy="160" r="1.5"/>
+        </g>
+        <g stroke="rgba(194,165,123,0.15)" stroke-width="1">
+          <line x1="112" y1="180" x2="128" y2="180"/><line x1="120" y1="172" x2="120" y2="188"/>
+          <line x1="1340" y1="60"  x2="1356" y2="60"/><line x1="1348" y1="52"  x2="1348" y2="68"/>
+        </g>
+        <rect x="1180" y="440" width="12" height="12" transform="rotate(45 1186 446)" fill="none" stroke="rgba(194,165,123,0.14)" stroke-width="1"/>
+        <rect x="220"  y="280" width="7"  height="7"  transform="rotate(45 223.5 283.5)" fill="rgba(194,165,123,0.1)"/>
+        <path d="M 0 900 Q 380 280 920 0" stroke="rgba(194,165,123,0.035)" stroke-width="1" fill="none"/>
+        <line x1="700" y1="880" x2="1440" y2="880" stroke="rgba(194,165,123,0.04)" stroke-width="1"/>
+        <g stroke="rgba(194,165,123,0.06)" stroke-width="1">
+          <line x1="750"  y1="876" x2="750"  y2="884"/>
+          <line x1="850"  y1="876" x2="850"  y2="884"/>
+          <line x1="950"  y1="876" x2="950"  y2="884"/>
+          <line x1="1050" y1="876" x2="1050" y2="884"/>
+          <line x1="1150" y1="876" x2="1150" y2="884"/>
+          <line x1="1250" y1="876" x2="1250" y2="884"/>
+          <line x1="1350" y1="876" x2="1350" y2="884"/>
+        </g>
+      </svg>
+    </div>
+
     <div class="hero-overlay"></div>
     <div class="hero-year">1952</div>
 
@@ -65,9 +108,36 @@
     </div>
   </section>
 
+  <!-- ── MARQUEE STRIP ─────────────────────────────────── -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Custom Woodwork <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Interior Fit-Out <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Established 1952 <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Precision Craftsmanship <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Amman, Jordan <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">500+ Projects Delivered <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Luxury Hospitality <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Bespoke Joinery <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Premium Materials <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Al-Jayousi Est. <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Custom Woodwork <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Interior Fit-Out <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Established 1952 <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Precision Craftsmanship <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Amman, Jordan <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">500+ Projects Delivered <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Luxury Hospitality <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Bespoke Joinery <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Premium Materials <span class="marquee-diamond"></span></span>
+      <span class="marquee-item">Al-Jayousi Est. <span class="marquee-diamond"></span></span>
+    </div>
+  </div>
+
   <!-- ── INTRO ───────────────────────────────────────── -->
-  <section class="section intro">
-    <div class="container">
+  <section class="section intro" style="position:relative;overflow:hidden;">
+    <div class="diag-lines-bg" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;">
       <div class="intro-grid">
         <div class="intro-text">
           <span class="section-label fade-in">Our Story</span>
@@ -122,9 +192,21 @@
       <div class="services-grid">
         <div class="service-card fade-in">
           <span class="service-num">01</span>
-          <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
-          </svg>
+          <div class="service-icon-wrap">
+            <div class="service-icon-diamond"></div>
+            <div class="service-icon-center">
+              <!-- Wood plane / chisel illustration -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M4 22 L14 8 L18 8 L28 22 Z"/>
+                <line x1="6" y1="22" x2="26" y2="22" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="8"  y1="25" x2="24" y2="25" stroke-width="1" opacity=".6"/>
+                <line x1="11" y1="28" x2="21" y2="28" stroke-width="1" opacity=".4"/>
+                <line x1="12" y1="12" x2="20" y2="12" stroke-width="1" opacity=".5"/>
+                <line x1="10" y1="16" x2="22" y2="16" stroke-width="1" opacity=".4"/>
+                <line x1="14.5" y1="8" x2="17.5" y2="8" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
           <h3>Custom Woodwork</h3>
           <p>Bespoke doors, wall panels, furniture, and decorative elements — each crafted to exact specifications with premium materials and artisanal precision.</p>
           <a href="services.html" class="service-link">
@@ -135,9 +217,25 @@
 
         <div class="service-card fade-in delay-1">
           <span class="service-num">02</span>
-          <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/>
-          </svg>
+          <div class="service-icon-wrap">
+            <div class="service-icon-diamond"></div>
+            <div class="service-icon-center">
+              <!-- Interior / building columns illustration -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" stroke="currentColor">
+                <line x1="4"  y1="28" x2="28" y2="28" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="4"  y1="6"  x2="28" y2="6"  stroke-width="1.5" stroke-linecap="round"/>
+                <rect x="6"  y="9" width="4" height="19" stroke-width="1.2" rx=".5"/>
+                <rect x="14" y="9" width="4" height="19" stroke-width="1.2" rx=".5"/>
+                <rect x="22" y="9" width="4" height="19" stroke-width="1.2" rx=".5"/>
+                <line x1="5"  y1="9"  x2="27" y2="9"  stroke-width="1" opacity=".5"/>
+                <line x1="7"  y1="12" x2="9"  y2="12" stroke-width=".8" opacity=".4"/>
+                <line x1="15" y1="12" x2="17" y2="12" stroke-width=".8" opacity=".4"/>
+                <line x1="23" y1="12" x2="25" y2="12" stroke-width=".8" opacity=".4"/>
+                <line x1="2"  y1="6"  x2="2"  y2="28" stroke-width="1.2" stroke-linecap="round" opacity=".4"/>
+                <line x1="30" y1="6"  x2="30" y2="28" stroke-width="1.2" stroke-linecap="round" opacity=".4"/>
+              </svg>
+            </div>
+          </div>
           <h3>Fit-Out &amp; Finishing</h3>
           <p>Full interior execution for hotels, offices, hospitals, and commercial spaces — from structural joinery to final finishing, all under one roof.</p>
           <a href="services.html" class="service-link">
@@ -148,9 +246,31 @@
 
         <div class="service-card fade-in delay-2">
           <span class="service-num">03</span>
-          <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3"/>
-          </svg>
+          <div class="service-icon-wrap">
+            <div class="service-icon-diamond"></div>
+            <div class="service-icon-center">
+              <!-- Compass / drafting illustration -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" stroke="currentColor">
+                <circle cx="16" cy="16" r="11" stroke-width="1.2"/>
+                <circle cx="16" cy="16" r="7"  stroke-width=".8" opacity=".4"/>
+                <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
+                <!-- Compass arms -->
+                <line x1="16" y1="5"  x2="16" y2="14.5" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="16" y1="17.5" x2="16" y2="27" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+                <line x1="5"  y1="16" x2="14.5" y2="16" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
+                <line x1="17.5" y1="16" x2="27"  y2="16" stroke-width="1.2" stroke-linecap="round" opacity=".3"/>
+                <!-- Tick marks on circle -->
+                <g stroke-width="1" opacity=".5">
+                  <line x1="16" y1="5"  x2="16" y2="7"/>
+                  <line x1="16" y1="25" x2="16" y2="27"/>
+                  <line x1="5"  y1="16" x2="7"  y2="16"/>
+                  <line x1="25" y1="16" x2="27" y2="16"/>
+                </g>
+                <!-- North marker -->
+                <polygon points="16,3 14.5,7 16,6 17.5,7" fill="currentColor" opacity=".7"/>
+              </svg>
+            </div>
+          </div>
           <h3>Measurements &amp; Space Planning</h3>
           <p>Precise site measurements and intelligent space optimization — ensuring every piece fits perfectly within the architectural context of your project.</p>
           <a href="services.html" class="service-link">
@@ -228,8 +348,10 @@
   </section>
 
   <!-- ── HOW WE WORK ──────────────────────────────────── -->
-  <section class="section process-strip">
-    <div class="container">
+  <section class="section process-strip" style="position:relative;overflow:hidden;">
+    <div class="section-geo-bg" aria-hidden="true"></div>
+    <div class="woodgrain-overlay" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;">
       <div style="text-align:center;margin-bottom:clamp(48px,6vw,72px);">
         <span class="section-label fade-in" style="justify-content:center;">How We Work</span>
         <h2 class="section-title fade-in delay-1">Our <em>Process</em></h2>

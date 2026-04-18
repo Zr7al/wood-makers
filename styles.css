@@ -1301,3 +1301,291 @@ ul { list-style: none; }
   .proj-item:hover .proj-img-wrap { transform: none; }
   .client-logo:hover   { transform: none; }
 }
+
+/* ============================================================
+   VISUAL ENHANCEMENTS — Illustrations, Particles & Decorations
+   ============================================================ */
+
+/* ── Hero Canvas ─────────────────────────────────────────────── */
+#heroCanvas {
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none; opacity: .55;
+  width: 100%; height: 100%;
+}
+
+/* ── Hero SVG Geometric Lines ────────────────────────────────── */
+.hero-svg-deco {
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none; overflow: hidden;
+}
+.hero-svg-deco svg { width: 100%; height: 100%; }
+
+/* ── Marquee Strip ───────────────────────────────────────────── */
+.marquee-strip {
+  overflow: hidden;
+  border-top: 1px solid var(--accent-border);
+  border-bottom: 1px solid var(--accent-border);
+  background: var(--bg-3);
+  padding: 16px 0;
+  position: relative; z-index: 10;
+}
+.marquee-track {
+  display: flex; gap: 0;
+  animation: marqueeScroll 40s linear infinite;
+  width: max-content;
+}
+.marquee-track:hover { animation-play-state: paused; }
+.marquee-item {
+  display: inline-flex; align-items: center; gap: 18px;
+  padding: 0 28px;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .26em; text-transform: uppercase;
+  color: var(--text-3); white-space: nowrap; flex-shrink: 0;
+}
+.marquee-diamond {
+  width: 5px; height: 5px; flex-shrink: 0;
+  background: var(--accent); opacity: .45;
+  transform: rotate(45deg);
+}
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Section Geometric Grid Bg ───────────────────────────────── */
+.section-geo-bg {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(194,165,123,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(194,165,123,.025) 1px, transparent 1px);
+  background-size: 76px 76px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 0%, transparent 80%);
+  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 0%, transparent 80%);
+}
+
+/* ── Diagonal Animated Lines Bg ──────────────────────────────── */
+.diag-lines-bg {
+  position: absolute; left: -50%; top: -50%;
+  width: 200%; height: 200%;
+  pointer-events: none; z-index: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent 0, transparent 26px,
+    rgba(194,165,123,.014) 26px, rgba(194,165,123,.014) 27px
+  );
+  animation: diagShift 32s linear infinite;
+}
+@keyframes diagShift {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(80px, 80px); }
+}
+
+/* ── Wood Grain Overlay ──────────────────────────────────────── */
+.woodgrain-overlay {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    repeating-linear-gradient(
+      93deg,
+      transparent 0, transparent 12px,
+      rgba(194,165,123,.011) 12px, rgba(194,165,123,.011) 13px,
+      transparent 13px, transparent 28px,
+      rgba(101,68,33,.007) 28px, rgba(101,68,33,.007) 29px
+    );
+}
+
+/* ── Enhanced Service Icon Diamond Frame ─────────────────────── */
+.service-icon-wrap {
+  position: relative; width: 72px; height: 72px;
+  margin-bottom: 32px; flex-shrink: 0;
+}
+.service-icon-diamond {
+  position: absolute; inset: 0;
+  border: 1px solid rgba(194,165,123,.18);
+  background: radial-gradient(ellipse at center, rgba(194,165,123,.055) 0%, transparent 70%);
+  transform: rotate(45deg);
+  transition: border-color .4s, background .4s;
+}
+.service-icon-diamond::after {
+  content: '';
+  position: absolute; inset: 6px;
+  border: 1px solid rgba(194,165,123,.08);
+  transition: border-color .4s;
+}
+.service-card:hover .service-icon-diamond {
+  border-color: rgba(194,165,123,.45);
+  background: radial-gradient(ellipse at center, rgba(194,165,123,.14) 0%, transparent 70%);
+}
+.service-card:hover .service-icon-diamond::after { border-color: rgba(194,165,123,.22); }
+.service-icon-center {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center; z-index: 1;
+}
+.service-icon-center svg { width: 30px; height: 30px; color: var(--accent); }
+
+/* ── Floating SVG Decoration ─────────────────────────────────── */
+.float-deco {
+  position: absolute; pointer-events: none;
+  opacity: .05; z-index: 0;
+  color: var(--accent);
+}
+.float-deco svg { display: block; }
+
+/* ── Decorative Corner Brackets ──────────────────────────────── */
+.corner-brackets {
+  position: absolute; inset: 20px;
+  pointer-events: none; z-index: 2;
+}
+.corner-brackets::before,
+.corner-brackets::after,
+.corner-brackets-inner::before,
+.corner-brackets-inner::after {
+  content: ''; position: absolute;
+  width: 28px; height: 28px;
+  border-color: rgba(194,165,123,.22);
+  border-style: solid;
+}
+.corner-brackets::before {
+  top: 0; left: 0;
+  border-width: 1px 0 0 1px;
+}
+.corner-brackets::after {
+  top: 0; right: 0;
+  border-width: 1px 1px 0 0;
+}
+.corner-brackets-inner::before {
+  bottom: 0; left: 0;
+  border-width: 0 0 1px 1px;
+}
+.corner-brackets-inner::after {
+  bottom: 0; right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+/* ── Sparkle / Rising Dots ───────────────────────────────────── */
+.sparkle-dot {
+  position: absolute; pointer-events: none; z-index: 3;
+  width: 3px; height: 3px;
+  background: var(--accent); border-radius: 50%; opacity: 0;
+}
+@keyframes sparkleRise {
+  0%   { opacity: 0; transform: translateY(0) scale(0); }
+  25%  { opacity: .7; transform: translateY(-12px) scale(1); }
+  100% { opacity: 0; transform: translateY(-36px) scale(.3); }
+}
+.sparkle-dot:nth-child(1)  { animation: sparkleRise 5s ease-out infinite 0s; }
+.sparkle-dot:nth-child(2)  { animation: sparkleRise 5s ease-out infinite 1s; }
+.sparkle-dot:nth-child(3)  { animation: sparkleRise 5s ease-out infinite 2s; }
+.sparkle-dot:nth-child(4)  { animation: sparkleRise 5s ease-out infinite 3s; }
+.sparkle-dot:nth-child(5)  { animation: sparkleRise 5s ease-out infinite 4s; }
+
+/* ── Glow Pulse Orb ──────────────────────────────────────────── */
+.glow-orb {
+  position: absolute; border-radius: 50%;
+  pointer-events: none; filter: blur(70px);
+  animation: glowPulse 6s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: .07; transform: scale(1); }
+  50%       { opacity: .16; transform: scale(1.15); }
+}
+
+/* ── Ornamental Divider ──────────────────────────────────────── */
+.ornament-divider {
+  display: flex; align-items: center; gap: 16px;
+  padding: 0 var(--pad);
+  pointer-events: none;
+}
+.ornament-divider-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(194,165,123,.18) 50%, transparent);
+}
+.ornament-divider-center {
+  display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+}
+.ornament-div-diamond {
+  width: 6px; height: 6px;
+  background: var(--accent); transform: rotate(45deg);
+  opacity: .5;
+}
+.ornament-div-line {
+  width: 20px; height: 1px;
+  background: rgba(194,165,123,.3);
+}
+
+/* ── Ring Expand Animation ───────────────────────────────────── */
+.ring-expand {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(194,165,123,.15);
+  pointer-events: none;
+  animation: ringExpand 5s ease-out infinite;
+}
+.ring-expand:nth-child(2) { animation-delay: 1.6s; }
+.ring-expand:nth-child(3) { animation-delay: 3.2s; }
+@keyframes ringExpand {
+  from { opacity: .45; transform: scale(.4); }
+  to   { opacity: 0;   transform: scale(2.8); }
+}
+
+/* ── About Illustration ──────────────────────────────────────── */
+.about-svg-illus {
+  width: 100%; height: 100%; min-height: 420px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.about-svg-illus svg {
+  width: 100%; height: 100%; max-width: 460px;
+}
+
+/* ── Services floating tool deco ─────────────────────────────── */
+.svc2-section { position: relative; }
+.svc-tool-deco {
+  position: absolute; pointer-events: none; z-index: 0;
+  opacity: .045; color: var(--accent);
+}
+.svc-tool-deco svg { display: block; }
+
+/* ── Process section illustrations ───────────────────────────── */
+.ps-circle { position: relative; overflow: visible; }
+.ps-ring-wrap {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+
+/* ── SVG draw-on animation ───────────────────────────────────── */
+@keyframes svgDraw {
+  to { stroke-dashoffset: 0; }
+}
+.svg-draw-line {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+}
+.svg-draw-line.visible {
+  animation: svgDraw 2.5s ease-out forwards .3s;
+}
+
+/* ── Intro section quote mark ────────────────────────────────── */
+.intro-quote-mark {
+  position: absolute; right: -4%; top: -12%;
+  font-family: var(--font-display);
+  font-size: clamp(200px, 28vw, 380px);
+  font-weight: 600; line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(194,165,123,.035);
+  pointer-events: none; user-select: none;
+  z-index: 0;
+}
+
+/* ── Contact decorative SVG ──────────────────────────────────── */
+.contact-deco-svg {
+  display: block; width: 100%;
+  max-width: 340px; margin: 40px auto 0;
+  opacity: .85;
+}
+
+/* Mobile: hide heavy decorations */
+@media (max-width: 768px) {
+  .float-deco, .hero-svg-deco, .diag-lines-bg,
+  .svc-tool-deco, .intro-quote-mark { display: none; }
+  .section-geo-bg { opacity: .5; }
+}
