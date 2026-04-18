@@ -1637,3 +1637,200 @@ ul { list-style: none; }
   .svc-tool-deco, .intro-quote-mark { display: none; }
   .section-geo-bg { opacity: .5; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   PROCESS v2 — The Atelier Method
+   ══════════════════════════════════════════════════════════════ */
+
+.process-v2 {
+  background: #0c0b09;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(80px,10vw,140px) 0;
+}
+
+.pv2-bg-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 900px; height: 900px;
+  background: radial-gradient(ellipse at center,
+    rgba(194,165,123,.06) 0%,
+    rgba(194,165,123,.02) 40%,
+    transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+
+.pv2-header {
+  text-align: center;
+  position: relative; z-index: 1;
+  margin-bottom: clamp(60px,8vw,96px);
+}
+.pv2-header .section-label { justify-content: center; }
+.pv2-header .section-title { margin-top: 8px; }
+
+/* ── Rows ─────────────────────────────────────────── */
+.pv2-rows {
+  position: relative; z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pv2-row {
+  display: grid;
+  grid-template-columns: 54% 46%;
+  min-height: 320px;
+  position: relative;
+}
+.pv2-row--alt {
+  grid-template-columns: 46% 54%;
+}
+.pv2-row--alt .pv2-illus-side { order: 2; }
+.pv2-row--alt .pv2-text-side  { order: 1; }
+
+/* ── Separator ────────────────────────────────────── */
+.pv2-sep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 28px 0;
+  position: relative; z-index: 1;
+}
+.pv2-sep-line {
+  flex: 1;
+  max-width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(194,165,123,.3), transparent);
+}
+.pv2-sep-diamond {
+  width: 8px; height: 8px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  opacity: .7;
+}
+
+/* ── Illustration panel ───────────────────────────── */
+.pv2-illus-side {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(32px,4vw,56px);
+  overflow: hidden;
+}
+
+.pv2-illus-num {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(100px,14vw,180px);
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(194,165,123,.07);
+  user-select: none;
+  pointer-events: none;
+  bottom: -10px; right: 8%;
+  z-index: 0;
+}
+
+.pv2-illus-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 360px;
+  padding: 20px;
+  transition: filter .4s ease;
+}
+.pv2-illus-frame:hover {
+  filter: drop-shadow(0 0 24px rgba(194,165,123,.18));
+}
+
+/* Corner brackets */
+.pv2-corner {
+  position: absolute;
+  width: 22px; height: 22px;
+  border-color: rgba(194,165,123,.45);
+  border-style: solid;
+  border-width: 0;
+}
+.pv2-corner-tl { top: 0; left: 0;  border-top-width: 1.5px; border-left-width: 1.5px; }
+.pv2-corner-tr { top: 0; right: 0; border-top-width: 1.5px; border-right-width: 1.5px; }
+.pv2-corner-bl { bottom: 0; left: 0;  border-bottom-width: 1.5px; border-left-width: 1.5px; }
+.pv2-corner-br { bottom: 0; right: 0; border-bottom-width: 1.5px; border-right-width: 1.5px; }
+
+.pv2-illus-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Text panel ───────────────────────────────────── */
+.pv2-text-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(32px,4vw,56px) clamp(28px,4vw,64px);
+  position: relative;
+}
+
+.pv2-step-tag {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.pv2-step-tag::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--accent);
+  opacity: .6;
+  flex-shrink: 0;
+}
+
+.pv2-step-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px,4vw,46px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--text);
+  margin: 0 0 20px;
+  font-style: italic;
+}
+
+.pv2-step-desc {
+  font-family: var(--font-body);
+  font-size: clamp(14px,1.4vw,16px);
+  line-height: 1.75;
+  color: var(--text-2);
+  margin: 0;
+  max-width: 380px;
+}
+
+/* ── Mobile ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .pv2-row,
+  .pv2-row--alt {
+    grid-template-columns: 1fr;
+  }
+  .pv2-row--alt .pv2-illus-side { order: 0; }
+  .pv2-row--alt .pv2-text-side  { order: 1; }
+  .pv2-illus-frame { max-width: 300px; margin: 0 auto; }
+  .pv2-illus-num { font-size: 100px; }
+}
+
+@media (max-width: 480px) {
+  .pv2-step-title { font-size: 26px; }
+  .pv2-illus-num  { font-size: 80px; }
+  .pv2-illus-side { padding: 24px 16px 8px; }
+  .pv2-text-side  { padding: 16px 20px 32px; }
+}
