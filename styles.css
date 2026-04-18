@@ -1848,3 +1848,253 @@ ul { list-style: none; }
   .pv2-illus-side { padding: 24px 16px 8px; }
   .pv2-text-side  { padding: 12px 16px 28px; }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   JOURNEY V2 — The Chronicle
+   ══════════════════════════════════════════════════════════════ */
+
+.journey-v2 {
+  background: #0b0a08;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(80px,10vw,140px) 0;
+}
+
+.jv2-bg-year {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(180px,28vw,400px);
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(194,165,123,.025);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-42%);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  z-index: 0;
+}
+
+.jv2-header {
+  text-align: center;
+  position: relative; z-index: 1;
+  margin-bottom: clamp(56px,8vw,96px);
+}
+.jv2-header .section-label { justify-content: center; }
+
+/* ── Track + spine ──────────────────────────── */
+.jv2-track {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(24px,5vw,80px);
+  z-index: 1;
+}
+.jv2-track::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 20px; bottom: 20px;
+  width: 1px;
+  background: linear-gradient(to bottom,
+    transparent,
+    rgba(194,165,123,.28) 6%,
+    rgba(194,165,123,.28) 94%,
+    transparent
+  );
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* ── Milestone item ─────────────────────────── */
+.jv2-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  padding: clamp(48px,6vw,80px) 0;
+  border-bottom: 1px solid rgba(194,165,123,.07);
+}
+.jv2-item:last-child { border-bottom: none; }
+
+.jv2-item--alt .jv2-illus-side { order: 2; }
+.jv2-item--alt .jv2-text-side  { order: 1; }
+
+/* ── Ornate spine node ──────────────────────── */
+.jv2-node-wrap {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: #0b0a08;
+  z-index: 3;
+}
+.jv2-node-ring {
+  position: absolute;
+  width: 32px; height: 32px;
+  border: 1px solid rgba(194,165,123,.4);
+  border-radius: 50%;
+}
+.jv2-node-ring-2 {
+  position: absolute;
+  width: 20px; height: 20px;
+  border: 1px solid rgba(194,165,123,.18);
+  border-radius: 50%;
+}
+.jv2-node-diamond {
+  position: absolute;
+  width: 10px; height: 10px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  opacity: .85;
+}
+
+/* ── Illustration panel ─────────────────────── */
+.jv2-illus-side {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px clamp(44px,5vw,70px) 20px 0;
+}
+.jv2-item--alt .jv2-illus-side {
+  justify-content: flex-start;
+  padding: 20px 0 20px clamp(44px,5vw,70px);
+}
+
+.jv2-illus-frame {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  padding: 20px;
+  transition: filter .4s ease;
+  flex-shrink: 0;
+}
+.jv2-illus-frame:hover {
+  filter: drop-shadow(0 0 28px rgba(194,165,123,.18));
+}
+.jv2-illus-svg { display: block; width: 100%; height: auto; }
+
+.jv2-c { position: absolute; width: 20px; height: 20px;
+  border-color: rgba(194,165,123,.42); border-style: solid; border-width: 0; }
+.jv2-c-tl { top:0; left:0;   border-top-width:1.5px; border-left-width:1.5px; }
+.jv2-c-tr { top:0; right:0;  border-top-width:1.5px; border-right-width:1.5px; }
+.jv2-c-bl { bottom:0; left:0;  border-bottom-width:1.5px; border-left-width:1.5px; }
+.jv2-c-br { bottom:0; right:0; border-bottom-width:1.5px; border-right-width:1.5px; }
+
+/* ── Text panel ─────────────────────────────── */
+.jv2-text-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 0 20px clamp(44px,5vw,70px);
+}
+.jv2-item--alt .jv2-text-side {
+  padding: 20px clamp(44px,5vw,70px) 20px 0;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.jv2-era-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.jv2-era-label::before {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--accent);
+  opacity: .55;
+  flex-shrink: 0;
+}
+.jv2-item--alt .jv2-era-label {
+  flex-direction: row-reverse;
+}
+.jv2-item--alt .jv2-era-label::before {
+  /* decorative line after text when right-aligned */
+}
+
+.jv2-year {
+  font-family: var(--font-display);
+  font-size: clamp(52px,5.5vw,78px);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1;
+  color: var(--accent);
+  opacity: .7;
+  margin: 0 0 16px;
+  letter-spacing: -.01em;
+}
+
+.jv2-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px,2vw,28px);
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 14px;
+  line-height: 1.25;
+}
+
+.jv2-desc {
+  font-family: var(--font-body);
+  font-size: clamp(13px,1.2vw,15px);
+  line-height: 1.82;
+  color: var(--text-2);
+  margin: 0;
+  max-width: 360px;
+}
+.jv2-item--alt .jv2-desc { margin-left: auto; }
+
+/* ── Mobile ─────────────────────────────────── */
+@media (max-width: 860px) {
+  .jv2-track::before { display: none; }
+  .jv2-node-wrap { display: none; }
+
+  .jv2-item,
+  .jv2-item--alt {
+    grid-template-columns: 1fr;
+    border-bottom: none;
+    padding: 0 0 36px 28px;
+    margin-left: 16px;
+    border-left: 1px solid rgba(194,165,123,.22);
+  }
+  .jv2-item::before,
+  .jv2-item--alt::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 6px;
+    width: 9px; height: 9px;
+    background: var(--accent);
+    transform: rotate(45deg);
+    opacity: .8;
+  }
+  .jv2-item--alt .jv2-illus-side { order: 0; }
+  .jv2-item--alt .jv2-text-side  { order: 1; }
+  .jv2-illus-side,
+  .jv2-item--alt .jv2-illus-side {
+    justify-content: flex-start;
+    padding: 0 0 20px 0;
+  }
+  .jv2-illus-frame { max-width: 260px; }
+  .jv2-text-side,
+  .jv2-item--alt .jv2-text-side {
+    padding: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .jv2-item--alt .jv2-era-label { flex-direction: row; }
+  .jv2-item--alt .jv2-desc { margin-left: 0; }
+}
+@media (max-width: 480px) {
+  .jv2-year { font-size: 44px; }
+  .jv2-illus-frame { max-width: 220px; }
+  .jv2-item, .jv2-item--alt { padding-left: 22px; margin-left: 12px; }
+}
