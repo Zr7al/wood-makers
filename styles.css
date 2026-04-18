@@ -1340,6 +1340,20 @@ ul { list-style: none; }
    VISUAL ENHANCEMENTS — Illustrations, Particles & Decorations
    ============================================================ */
 
+/* ── Header logo (hero + page headers) ──────────────────────── */
+.header-logo {
+  display: block;
+  height: 80px; width: auto;
+  max-width: 260px;
+  object-fit: contain;
+  margin-bottom: 36px;
+  position: relative; z-index: 3;
+  filter: brightness(1.1);
+}
+@media (max-width: 768px) {
+  .header-logo { height: 64px; margin-bottom: 24px; }
+}
+
 /* ── Hero Canvas ─────────────────────────────────────────────── */
 #heroCanvas {
   position: absolute; inset: 0; z-index: 1;
